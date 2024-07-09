@@ -4,6 +4,9 @@ from robot.robot_actions import Robot
 import pyttsx3
 import time
 
+engine = pyttsx3.init()
+engine.setProperty('voice', voices[1].id)
+                   
 class Server:
     def __init__(self, host, port, header=64, format="utf-8", disconnect_cmd="!bye"):
         self.host = host
@@ -30,8 +33,6 @@ class Server:
         self.server_socket.listen()
         print(f"Server started on {self.host}:{self.port}...")
         while True:
-            print("server listening...")
-            time.sleep(3)
             conn, addr = self.server_socket.accept()
             print(f"Connected to {addr}")
             threading.Thread(target=self.handle_client, args=(conn, addr)).start()
