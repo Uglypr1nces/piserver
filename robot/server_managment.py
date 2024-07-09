@@ -4,7 +4,14 @@ from robot.robot_actions import Robot
 import pyttsx3
 import time
 
+import pygame
+from pygame import mixer
+
+pygame.init()
+pygame.mixer.init()
+
 engine = pyttsx3.init()
+alarmSound = "sounds/quck.mp3"
                    
 class Server:
     def __init__(self, host, port, header=64, format="utf-8", disconnect_cmd="!bye"):
@@ -72,7 +79,8 @@ class Server:
                     subprocess.call("shutdown.sh")
 
                 if msg == "alarm_sound":
-                    alarm_sound.play()
+                    alarmSound.play()
+
                 if msg[:4] == "word":
                     print(msg[4:])
                     engine.say(msg[4:])
