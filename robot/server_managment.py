@@ -79,7 +79,8 @@ class Server:
                     subprocess.call("shutdown.sh")
 
                 if msg == "alarm_sound":
-                    alarmSound.play()
+                    mixer.music.load(alarmSound)
+                    mixer.music.play()
 
                 if msg[:4] == "word":
                     print(msg[4:])
