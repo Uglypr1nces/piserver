@@ -5,7 +5,6 @@ import pyttsx3
 import time
 
 engine = pyttsx3.init()
-engine.setProperty('voice', voices[1].id)
                    
 class Server:
     def __init__(self, host, port, header=64, format="utf-8", disconnect_cmd="!bye"):
