@@ -2,6 +2,7 @@ import socket
 import threading
 from robot.robot_actions import Robot
 import pyttsx3
+import time
 
 class Server:
     def __init__(self, host, port, header=64, format="utf-8", disconnect_cmd="!bye"):
@@ -22,13 +23,15 @@ class Server:
         self.robot.set_servo_angle(0)
         self.robot.set_camera_angles(0, 0)
         self.robot.px.stop()
-        sleep(0.2)
+        time.sleep(0.2)
 
     def start(self):
         self.robot = Robot()
         self.server_socket.listen()
         print(f"Server started on {self.host}:{self.port}...")
         while True:
+            print("server listening...")
+            time.sleep(3)
             conn, addr = self.server_socket.accept()
             print(f"Connected to {addr}")
             threading.Thread(target=self.handle_client, args=(conn, addr)).start()
