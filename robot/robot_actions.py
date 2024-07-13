@@ -26,3 +26,6 @@ class Robot:
     def set_camera_angles(self, pan_angle, tilt_angle):
         self.px.set_cam_pan_angle(pan_angle)
         self.px.set_cam_tilt_angle(tilt_angle)
+
+    def stop():
+        self.px.stop()
