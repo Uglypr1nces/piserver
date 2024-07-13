@@ -101,9 +101,9 @@ class Server:
 
     def update_robot(self):
         if self.direction == "forward":
-            self.robot.forward()
+            self.robot.move_forward()
         elif self.direction == "backward":
-            self.robot.backward()
+            self.robot.move_backward()
         elif self.direction == "right":
             self.servoangle += 3
         elif self.direction == "left":
