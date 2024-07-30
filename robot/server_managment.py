@@ -96,6 +96,8 @@ class Server:
                 print(msg[4:])
                 engine.say(msg[4:])
                 engine.runAndWait()
+            else:
+                print(msg)
 
             self.update_robot()
 
